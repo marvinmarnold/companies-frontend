@@ -9,6 +9,8 @@ import {
   Link
 } from "react-router-dom";
 
+const companies = require("./data/companies.json")
+
 const a = 97;
 const z = 123;
 let alphabet = []
@@ -31,7 +33,8 @@ class App extends Component {
   }
 
   renderNav() {
-
+    console.log("path")
+    console.log(this.props.location)
     return (
       <nav>
           <ul>
@@ -42,6 +45,8 @@ class App extends Component {
   }
 
   renderDirectory(node) {
+        console.log("path")
+    console.log(this.props.location)
     return (
       <div>
           {this.renderNav()}
@@ -51,6 +56,8 @@ class App extends Component {
   }
 
   renderCompany(node) {
+        console.log("path")
+    console.log(this.props.location)
     return (
       <div>
           {this.renderNav()}
@@ -60,6 +67,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <Router>
         <div>
@@ -67,7 +75,7 @@ class App extends Component {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/directory">
+            <Route path="/directory/:">
               {this.renderDirectory({prefix: "dir"})}
             </Route>
             <Route path="/company">
